@@ -1,5 +1,4 @@
-# File: .github/workflows/repo-sync.yml
-name: sync-lxk0301-scripts
+name: 更新代码
 on:
   schedule:
     - cron: '1 15 * * *'
