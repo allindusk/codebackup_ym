@@ -12,7 +12,6 @@ jobs:
           persist-credentials: false
       - name: sync code
         uses: repo-sync/github-sync@v2
-        if: env.PAT
         with:
           source_repo: https://gitee.com/lxk0301/jd_scripts.git
           source_branch: "master"
