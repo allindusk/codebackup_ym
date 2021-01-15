@@ -1,0 +1,20 @@
+name: 更新代码
+on:
+  schedule:
+    - cron: '1 14 * * *'
+  workflow_dispatch:
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: sync code
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: https://gitee.com/lxk0301/jd_scripts.git
+          source_branch: "master"
+          destination_branch: "master"
+          github_token: ${{ secrets.PAT }}
