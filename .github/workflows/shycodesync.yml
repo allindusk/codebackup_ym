@@ -1,4 +1,4 @@
-name: 更新代码
+name: 更新代码_shy
 on:
 #  schedule:
 #    - cron: '1 15 * * *'
