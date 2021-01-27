@@ -1,0 +1,19 @@
+name: 更新代码
+on:
+#  schedule:
+#    - cron: '1 15 * * *'
+  workflow_dispatch:
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: sync code
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: https://github.com/Joinmogul/Loon_shylocks.git
+          source_branch: "master"
+          destination_branch: "shy"
+          github_token: ${{ secrets.PAT }}
