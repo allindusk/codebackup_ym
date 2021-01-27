@@ -1,4 +1,4 @@
-name: 更新代码
+name: 更新代码_LXK
 on:
   schedule:
     - cron: '1 15 * * *'
@@ -15,5 +15,5 @@ jobs:
         with:
           source_repo: https://gitee.com/lxk0301/jd_scripts.git
           source_branch: "master"
-          destination_branch: "nangao"
+          destination_branch: "laobanben"
           github_token: ${{ secrets.PAT }}
