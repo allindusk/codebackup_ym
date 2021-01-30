@@ -1,6 +1,6 @@
 name: 更新代码_shy
 on:
-#  schedule:
+#  schedule: 
 #    - cron: '1 15 * * *'
   workflow_dispatch:
 jobs:
