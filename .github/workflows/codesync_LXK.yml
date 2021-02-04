@@ -1,8 +1,8 @@
 name: 更新代码_LXK
 on:
+  workflow_dispatch:
   schedule:
     - cron: '1 15 * * *'
-  workflow_dispatch:
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
@@ -13,7 +13,6 @@ jobs:
       - name: sync code
         uses: repo-sync/github-sync@v2
         with:
-#           source_repo: https://github.com
           source_repo: https://gitee.com/lxk0301/jd_scripts.git
           source_branch: "master"
           destination_branch: "master"
