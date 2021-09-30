@@ -33,7 +33,7 @@ const jdCookieNode = ''//$.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let jdNotify = false;//是否开启静默运行，默认false关闭(即:奖品兑换成功后会发出通知提示)
 //IOS等用户直接用NobyDa的jd cookie
-let cookiesArr = ['pt_pin=jd_DNohKccewTWu;pt_key=AAJhLc06ADD-fP8oj2qOwFtc-Z6i0rXa8lQrafCHml9pvgHEP7wzVA2RqoF0qgZUorkU_7mxhvc;'], cookie = '';
+let cookiesArr = ['pt_pin=jd_DNohKccewTWu;pt_key=AAJhTYFXADCDsycYpQSdSdN4zdmK6PhUMa3eJ0--UAnk_zilcdxSE7q4QZ4IZi2lDZRzoV8SE00;'], cookie = '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
