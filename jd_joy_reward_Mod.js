@@ -1,5 +1,5 @@
 /*
-cron "0 0,8,16 * * *" jd_joy_reward_Mod.js
+cron "58 7,15,23 * * *" jd_joy_reward_Mod.js
  */
 //Mod by ccwav，20211014
 // prettier-ignore

@@ -9,7 +9,7 @@ export joyinviterPin="" //IANWqUmbgQVF9ePHGsGFA2m-zSTLKmHFbE-IW-Waarw
 
 
 
-const $ = new Env('汪汪乐园');
+const $ = new Env('柠檬旺财乐园新手上路版');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

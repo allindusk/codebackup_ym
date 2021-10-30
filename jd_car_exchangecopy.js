@@ -28,7 +28,7 @@ const $ = new Env('京东汽车兑换');
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = ''//$.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
-let cookiesArr = ['pt_pin=jd_DNohKccewTWu;pt_key=AAJhTYFXADCDsycYpQSdSdN4zdmK6PhUMa3eJ0--UAnk_zilcdxSE7q4QZ4IZi2lDZRzoV8SE00;'], cookie = '', message;
+let cookiesArr = ['pt_pin=jd_DNohKccewTWu;pt_key=AAJhcE7lADCUWrTAIGPLSckUd0Lm4GIs2Q8S_1qXH_CO1d6f9NYMX_8wAYjcywTg0mkVnszH8C0;'], cookie = '', message;
 if($.isNode()){
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])

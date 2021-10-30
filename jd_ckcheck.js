@@ -1,9 +1,9 @@
 /*
 [task_local]
-#jd_ckCheck
-30 6 * * *  jd_ckCheck.js
+#jd_ckcheck
+30 6 * * *  jd_ckcheck.js
  */
-const $ = new Env('CK检测');
+const $ = new Env('京东CK检测');
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

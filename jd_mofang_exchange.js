@@ -1,22 +1,21 @@
 /*
-先手动进去集魔方界面，再跑兑换脚本
 5魔方兑换
 已支持IOS双京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
 #5魔方兑换
-0 0 * * * jd_mofang_exchange.js, tag=5魔方兑换, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+0 0 * * * https://raw.githubusercontent.com/yuannian1112/jd_scripts/main/jd_mofang_exchange.js, tag=5魔方兑换, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 0 * * *" script-path=jd_mofang_exchange.js,tag=5魔方兑换
+cron "0 0 * * *" script-path=https://raw.githubusercontent.com/yuannian1112/jd_scripts/main/jd_mofang_exchange.js,tag=5魔方兑换
 
 ===============Surge=================
-5魔方兑换 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=jd_mofang_exchange.js
+5魔方兑换 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/yuannian1112/jd_scripts/main/jd_mofang_exchange.js
 
 ============小火箭=========
-5魔方兑换 = type=cron,script-path=jd_mofang_exchange.js, cronexpr="0 0 * * *", timeout=3600, enable=true
+5魔方兑换 = type=cron,script-path=https://raw.githubusercontent.com/yuannian1112/jd_scripts/main/jd_mofang_exchange.js, cronexpr="0 0 * * *", timeout=3600, enable=true
  */
 const $ = new Env('5魔方兑换');
 const printDetail = false;
@@ -34,29 +33,27 @@ if ($.isNode()) {
 const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=doInteractiveAssignment`;
 !(async () => {
     if (!cookiesArr[0]) {
-        $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
         return;
     }
     for (let i = 0; i < cookiesArr.length; i++) {
-        if (cookiesArr[i]) {
-            cookie = cookiesArr[i];
-            $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
+        cookie = cookiesArr[i];
+        if (cookie) {
             $.index = i + 1;
-            $.isLogin = true;
-            $.nickName = '';
-            message = '';
-            console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-            if (!$.isLogin) {
-                $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
-
-                if ($.isNode()) {
-                    await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-                }
-                continue
+            await  QueryJDUserInfo();
+            if (i+1) console.log(`\n***************开始京东账号${i + 1}【${$.nickname}】***************`)
+            //initial();
+            if (!$.isLogin)  //cookie不可用
+            {
+                //$.setdata('', `CookieJD${i ? i + 1 : "" }`);//cookie失效，故清空cookie。
+                $.msg($.name, `【提示】京东账号${i + 1} cookie已过期！请先获取cookie\n直接使用NobyDa的京东签到获取`, 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
+                continue;
             }
-            await exchange_redpocket();
-            await msgShow();
-            await $.wait(5000);
+            else{
+                await exchange_redpocket();
+                await msgShow();
+                await $.wait(5000)
+            }
         }
     }
 })()
@@ -93,7 +90,7 @@ function exchange_redpocket(){
 }
 function msgShow() {
     return new Promise(resolve => {
-        $.msg($.name, '', `【京东账号${$.index}】${$.UserName}\n${$.message}`);
+        $.msg($.name, '', `【京东账号${$.index}】${$.nickname}\n${$.message}`);
         resolve()
     })
 }

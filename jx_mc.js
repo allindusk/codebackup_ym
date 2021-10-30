@@ -49,12 +49,12 @@ if ($.isNode()) {
 }
 !(async () => {
     $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
+    $.fingerprint = '';$.token = '';
     await requestAlgo();
     if (!cookiesArr[0]) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
         return;
     }
-    $.fingerprint = '';$.token = '';
     for (let i = 0; i < cookiesArr.length; i++) {
         $.index = i + 1;
         $.cookie = cookiesArr[i];
@@ -76,10 +76,6 @@ if ($.isNode()) {
             $.logErr(e)
         }
         await $.wait(2000);
-    }
-    if(new Date().getHours() !== 9 && new Date().getHours() !== 12){
-        console.log('\n脚本早上9点到12点直接执行，才会执行账号内互助');
-        return ;
     }
     console.log('\n##################开始账号内互助#################\n');
     for (let j = 0; j < cookiesArr.length; j++) {

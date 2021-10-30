@@ -10,17 +10,17 @@ IOS用户支持京东双账号,NodeJs用户支持N个京东账号
 ==========Quantumult X==========
 [task_local]
 #宠汪汪偷好友积分与狗粮
-10 0-21/3 * * * https://raw.githubusercontent.com/yongyuanlin/jd_scripts/master/jd_joy_steal.js, tag=宠汪汪偷好友积分与狗粮, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
+10 0-21/3 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_joy_steal.js, tag=宠汪汪偷好友积分与狗粮, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
 
 =======Loon========
 [Script]
-cron "10 0-21/3 * * *" script-path=https://raw.githubusercontent.com/yongyuanlin/jd_scripts/master/jd_joy_steal.js,tag=宠汪汪偷好友积分与狗粮
+cron "10 0-21/3 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_joy_steal.js,tag=宠汪汪偷好友积分与狗粮
 
 ========Surge==========
-宠汪汪偷好友积分与狗粮 = type=cron,cronexp="10 0-21/3 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/yongyuanlin/jd_scripts/master/jd_joy_steal.js
+宠汪汪偷好友积分与狗粮 = type=cron,cronexp="10 0-21/3 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_joy_steal.js
 
 =======小火箭=====
-宠汪汪偷好友积分与狗粮 = type=cron,script-path=https://raw.githubusercontent.com/yongyuanlin/jd_scripts/master/jd_joy_steal.js, cronexpr="10 0-21/3 * * *", timeout=3600, enable=true
+宠汪汪偷好友积分与狗粮 = type=cron,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_joy_steal.js, cronexpr="10 0-21/3 * * *", timeout=3600, enable=true
 */
 const $ = new Env('宠汪汪偷好友积分与狗粮');
 const zooFaker = require('./utils/JDJRValidator_Pure');
