@@ -36,7 +36,7 @@ let cookiesArr = [],
     message;
 // let fcwbinviteCode = ''
 // let fcwbinviter = ''
-let fcwbroud = '1'
+let fcwbroud = ''
 let fcwbinviteCodeArr = []
 let fcwbinviterArr = []
 let fcwbinviteCodes = ''

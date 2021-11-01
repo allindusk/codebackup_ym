@@ -157,9 +157,9 @@ async function cfd() {
     // await $.wait(2000)
     // await getTakeAggrPage('wxsign')
 
-    // //助力奖励
-    // await $.wait(2000)
-    // await getTakeAggrPage('helpdraw')
+    //助力奖励
+    await $.wait(2000)
+    await getTakeAggrPage('helpdraw')
 
     // console.log('')
     // //卖贝壳
